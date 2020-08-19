@@ -1,0 +1,47 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Exo 2', sans-serif;
+  background-color: #edf2f4;
+}
+
+* {
+  outline: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.section {
+  padding: 0 16px;
+}
+
+.info-wrapper {
+  max-width: 1240px;
+  width: 100%;
+}
+.product-btn {
+  border: none;
+  border-radius: 2px;
+  height: 40px;
+  padding: 0 20px;
+  background-color: #2b2d42;
+  color: #edf2f4;
+  font-size: 14px;
+  min-width: 105px;
+}
+.product-btn:active {
+  background-color: #1C1D2B;
+}
+
+@media (min-width: 1240px) {
+  .center-position {
+    display: flex;
+    justify-content: center;
+  }
+}

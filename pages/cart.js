@@ -1,65 +1,16 @@
-import MainHeader from './components/mainHeader'
-import Slider from './components/slider'
-import InfoBlock from './components/infoBlock'
-import MainFooter from './components/mainFooter'
+import MainFooter from './components/mainFooter';
+import CartHeader from './components/cartHeader';
+import CartItem from './components/cartItem';
+import React from "react";
+import GlobalState from './state';
 
-const posts = [
-  {
-    id: 1,
-    img: '/assets/fullsize.jpg',
-    detail: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci aut cupiditate,\n' +
-      '            doloribus ducimus earum esse, eveniet ex excepturi illo ipsam iure minus necessitatibus nobis non\n' +
-      '            perspiciatis quaerat quos.\n' +
-      '            Adipisci, commodi consequatur cupiditate dignissimos, doloribus est eum expedita hic iure maiores maxime\n' +
-      '            necessitatibus nihil nobis pariatur praesentium quas, recusandae similique velit voluptas voluptates. Dicta\n' +
-      '            ea laborum odio sapiente veritatis?\n' +
-      '            Amet at maxime non odit officia reiciendis rem sunt. Aliquam beatae dolore earum error esse laudantium\n' +
-      '            modi nesciunt omnis! Consequatur dicta doloribus iure minima non optio quod rerum sit vero.'
-  },
-  {
-    id: 2,
-    img: '/assets/imgpreview.jpeg',
-    detail: '1Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci aut cupiditate,\n' +
-      '            doloribus ducimus earum esse, eveniet ex excepturi illo ipsam iure minus necessitatibus nobis non\n' +
-      '            perspiciatis quaerat quos.\n' +
-      '            Adipisci, commodi consequatur cupiditate dignissimos, doloribus est eum expedita hic iure maiores maxime\n' +
-      '            necessitatibus nihil nobis pariatur praesentium quas, recusandae similique velit voluptas voluptates. Dicta\n' +
-      '            ea laborum odio sapiente veritatis?\n' +
-      '            Amet at maxime non odit officia reiciendis rem sunt. Aliquam beatae dolore earum error esse laudantium\n' +
-      '            modi nesciunt omnis! Consequatur dicta doloribus iure minima non optio quod rerum sit vero.'
-  },
-  {
-    id: 3,
-    img: '/assets/doc74obzmflxlt8cme216t.jpg',
-    detail: '2Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci aut cupiditate,\n' +
-      '            doloribus ducimus earum esse, eveniet ex excepturi illo ipsam iure minus necessitatibus nobis non\n' +
-      '            perspiciatis quaerat quos.\n' +
-      '            Adipisci, commodi consequatur cupiditate dignissimos, doloribus est eum expedita hic iure maiores maxime\n' +
-      '            necessitatibus nihil nobis pariatur praesentium quas, recusandae similique velit voluptas voluptates. Dicta\n' +
-      '            ea laborum odio sapiente veritatis?\n' +
-      '            Amet at maxime non odit officia reiciendis rem sunt. Aliquam beatae dolore earum error esse laudantium\n' +
-      '            modi nesciunt omnis! Consequatur dicta doloribus iure minima non optio quod rerum sit vero.'
-  },
-  {
-    id: 4,
-    img: '/assets/LR2016.02-IL-Breakfast-9.jpg',
-    detail: '2Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci aut cupiditate,\n' +
-      '            doloribus ducimus earum esse, eveniet ex excepturi illo ipsam iure minus necessitatibus nobis non\n' +
-      '            perspiciatis quaerat quos.\n' +
-      '            Adipisci, commodi consequatur cupiditate dignissimos, doloribus est eum expedita hic iure maiores maxime\n' +
-      '            necessitatibus nihil nobis pariatur praesentium quas, recusandae similique velit voluptas voluptates. Dicta\n' +
-      '            ea laborum odio sapiente veritatis?\n' +
-      '            Amet at maxime non odit officia reiciendis rem sunt. Aliquam beatae dolore earum error esse laudantium\n' +
-      '            modi nesciunt omnis! Consequatur dicta doloribus iure minima non optio quod rerum sit vero.'
-  }
-];
 const products = [
   {
     id: 1,
     title: 'Баклажаныч',
     price: 1000,
     oldprice: 2000,
-    img: '/assets/baclaj.jpg',
+    img: 'assets/baclaj.jpg',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci aut cupiditate, doloribus ducimus earum esse, eveniet ex excepturi illo ipsam iure minus necessitatibus nobis non perspiciatis quaerat quos. Adipisci, commodi consequatur cupiditate dignissimos, doloribus est eum expedita hic iure maiores maxime necessitatibus nihil nobis pariatur praesentium quas, recusandae similique velit voluptas voluptates. Dicta ea laborum odio sapiente veritatis? Amet at maxime non odit officia reiciendis rem sunt. Aliquam beatae dolore earum error esse laudantium modi nesciunt omnis! Consequatur dicta doloribus iure minima non optio quod rerum sit vero.'},
   {
     id: 2,
@@ -70,7 +21,7 @@ const products = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci aut cupiditate, doloribus ducimus earum esse, eveniet ex excepturi illo ipsam iure minus necessitatibus nobis non perspiciatis quaerat quos. Adipisci, commodi consequatur cupiditate dignissimos, doloribus est eum expedita hic iure maiores maxime necessitatibus nihil nobis pariatur praesentium quas, recusandae similique velit voluptas voluptates. Dicta ea laborum odio sapiente veritatis? Amet at maxime non odit officia reiciendis rem sunt. Aliquam beatae dolore earum error esse laudantium modi nesciunt omnis! Consequatur dicta doloribus iure minima non optio quod rerum sit vero.'},
   {
     id: 3,
-    title: 'Брокколи',
+    title: 'Броколи',
     price: 900,
     oldprice: 1100,
     img: '/assets/brokoli.jpg',
@@ -84,7 +35,7 @@ const products = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci aut cupiditate, doloribus ducimus earum esse, eveniet ex excepturi illo ipsam iure minus necessitatibus nobis non perspiciatis quaerat quos. Adipisci, commodi consequatur cupiditate dignissimos, doloribus est eum expedita hic iure maiores maxime necessitatibus nihil nobis pariatur praesentium quas, recusandae similique velit voluptas voluptates. Dicta ea laborum odio sapiente veritatis? Amet at maxime non odit officia reiciendis rem sunt. Aliquam beatae dolore earum error esse laudantium modi nesciunt omnis! Consequatur dicta doloribus iure minima non optio quod rerum sit vero.'},
   {
     id: 5,
-    title: 'Огурец',
+    title: 'Огурцы',
     price: 1100,
     oldprice: 2100,
     img: '/assets/cucumbers.jpg',
@@ -112,7 +63,7 @@ const products = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci aut cupiditate, doloribus ducimus earum esse, eveniet ex excepturi illo ipsam iure minus necessitatibus nobis non perspiciatis quaerat quos. Adipisci, commodi consequatur cupiditate dignissimos, doloribus est eum expedita hic iure maiores maxime necessitatibus nihil nobis pariatur praesentium quas, recusandae similique velit voluptas voluptates. Dicta ea laborum odio sapiente veritatis? Amet at maxime non odit officia reiciendis rem sunt. Aliquam beatae dolore earum error esse laudantium modi nesciunt omnis! Consequatur dicta doloribus iure minima non optio quod rerum sit vero.'},
   {
     id: 9,
-    title: 'Патисон',
+    title: 'Патисоны',
     price: 1020,
     oldprice: 1200,
     img: '/assets/patis.jpg',
@@ -133,44 +84,109 @@ const products = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci aut cupiditate, doloribus ducimus earum esse, eveniet ex excepturi illo ipsam iure minus necessitatibus nobis non perspiciatis quaerat quos. Adipisci, commodi consequatur cupiditate dignissimos, doloribus est eum expedita hic iure maiores maxime necessitatibus nihil nobis pariatur praesentium quas, recusandae similique velit voluptas voluptates. Dicta ea laborum odio sapiente veritatis? Amet at maxime non odit officia reiciendis rem sunt. Aliquam beatae dolore earum error esse laudantium modi nesciunt omnis! Consequatur dicta doloribus iure minima non optio quod rerum sit vero.'},
   {
     id: 12,
-    title: 'Томат',
+    title: 'Томаты',
     price: 1600,
     oldprice: 1800,
     img: '/assets/tomatoes.jpg',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci aut cupiditate, doloribus ducimus earum esse, eveniet ex excepturi illo ipsam iure minus necessitatibus nobis non perspiciatis quaerat quos. Adipisci, commodi consequatur cupiditate dignissimos, doloribus est eum expedita hic iure maiores maxime necessitatibus nihil nobis pariatur praesentium quas, recusandae similique velit voluptas voluptates. Dicta ea laborum odio sapiente veritatis? Amet at maxime non odit officia reiciendis rem sunt. Aliquam beatae dolore earum error esse laudantium modi nesciunt omnis! Consequatur dicta doloribus iure minima non optio quod rerum sit vero.'},
 ];
-export default function Home() {
+
+export default function Cart() {
   return (
-    <div className="container">
-      <MainHeader/>
-      <div style={{ marginBottom: '76px' }}></div>
-      <a name="main"></a>
+    <>
+      <CartHeader />
       <section className="section center-position">
-        <div className="info-wrapper">
-          <div className="catlog">Выбери свой овощ</div>
-          <Slider products={products}/>
+        <div className="info-wrapper mh">
+            <GlobalState.Consumer>
+              {globalState => {
+                if (!Object.keys(globalState.state.cart).length) {
+                  return <div className="empty">Корзина пуста</div>
+                } else {
+                  return Object.keys(globalState.state.cart).map((cartItem) => {
+                    let item = null;
+                    products.forEach((key) => {
+                      if (String(key.id) === cartItem) {
+                        item = key;
+                      }
+                    });
+                    return <CartItem
+                      key={item.id}
+                      item={{
+                        ...item,
+                        quantity: globalState.state.cart[cartItem]
+                      }}
+                    />
+                  })
+                }
+              }}
+            </GlobalState.Consumer>
         </div>
       </section>
-      <section className="section center-position" style={{ minHeight: '100vh' }}>
-        <div className="info-wrapper">
-          { posts.map((post) => (
-            <InfoBlock img={ post.img } key={ post.id } detail={ post.detail }/>
-          )) }
-        </div>
-      </section>
+        <GlobalState.Consumer>
+          {globalState => {
+          if (!Object.keys(globalState.state.cart).length) {
+            return null;
+          } else {
+           const sum = Object.keys(globalState.state.cart).reduce((a, b) => {
+             let item = null;
+             products.forEach((key) => {
+               if (String(key.id) === b) {
+                 item = key;
+               }
+             });
+             return a + globalState.state.cart[b] * item.price;
+           }, 0)
+           return <div className="order">
+             <div className="order-sum">Сумма заказа {sum} ₽</div>
+             <button className="product-btn">Оформить заказ</button>
+           </div>
+          }
+          }}
+        </GlobalState.Consumer>
       <MainFooter />
-
       <style jsx>{`
-
-      `}</style>
-
-      <style jsx global>{`
-        .catlog {
-          color: rgba(43, 45, 66, 1);
-          font-size: 18px;
-          margin-bottom: 6px;
+        .mh {
+          min-height: 200px
         }
+        .section {
+          padding-top: 74px;
+        }
+        .empty {
+          height: 400px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 30px;
+          font-weight: bold;
+          color: rgba(43,45,66,1);
+        }
+        .img {
+          width: 100%;
+          height: auto;
+        }
+        .order {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 148px;
+        }
+        .order-sum {
+          margin-bottom: 8px;
+          font-size: 20px;
+        }
+        @media (min-width: 874px) {
+          .img {
+            max-width: 600px;
+          }
+        }
+        @media (max-width: 873px) {
+          .img {
+            margin-bottom: 18px;
+          }
+        }
+
       `}</style>
-    </div>
+    </>
   )
 }
